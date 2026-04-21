@@ -84,11 +84,18 @@ function showCards() {
     sortedSongs.sort(function(a,b) { return b.streams - a.streams; });
   }
 
+  //searching
+  const search = document.getElementById("searchInput").value.toLowerCase();
+
 
   for (let i = 0; i < sortedSongs.length; i++) {
     let song = sortedSongs[i];
 
+    //genre filter
     if(activeGenre !== "all" && song.genre.toLowerCase() !== activeGenre.toLowerCase()) continue;
+
+    //searching
+    if(!song.artist.toLowerCase().includes(search) && !song.artist.toLowerCase().includes(search)) continue;
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     nextCard.style.display = "block";
@@ -117,6 +124,9 @@ function showCards() {
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", function() {
   showCards();
+
+  document.getElementById("searchInput").addEventListener("change", showCards);
+
   document.getElementById("sortSelect").addEventListener("change", showCards);
   const genreButtons = document.querySelectorAll(".genre-btn");
 
