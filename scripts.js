@@ -119,6 +119,8 @@ function quoteAlert() {
 }
 
 function removeLastCard() {
-  songs.pop(); // Remove last item in titles array
+  songs.pop(); // Remove last item in songs array
   showCards(); // Call showCards again to refresh
+  //im noticing it looks like the implementation is wrong when im using genre filter 
+  //because it deletes even the ones not shown idk if i should fix this later
 }
