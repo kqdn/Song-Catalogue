@@ -44,6 +44,18 @@
   //   annotation: "Reminds me of having nostalgia and reminiscing an old friend that drifted away."
   // },
 
+
+//function to format large numbers:
+function formatStreams(num) {
+  if (num >= 1000000000) {
+    return (num / 1000000000).toFixed(1) + " Billion";
+  } else if (num >= 1000000) {
+    return (num / 1000000).toFixed(1) + " Million";
+  } else {
+    return (num / 1000).toFixed(1) + " Thousand";
+  }
+}
+
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
@@ -64,7 +76,7 @@ function showCards() {
           <span class="tag genre-tag">${song.genre}</span>
           <span class="tag">${song.bpm} BPM</span>
         </div>
-        <p class="card-streams">streams: <span>${song.streams}</span></p>
+        <p class="card-streams">streams: <span>${formatStreams(song.streams)}</span></p>
         <p class="card-annotation">${song.annotation}</p>
     `;
     cardContainer.appendChild(nextCard); // Add new card to the container
