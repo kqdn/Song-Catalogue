@@ -57,14 +57,36 @@ function formatStreams(num) {
   }
 }
 
+
+
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < songs.length; i++) {
-    let song = songs[i];
+
+  //sorting
+  let sortedSongs = [...songs]; //makes copy of songs arr not reference
+  const sortValue = document.getElementById("sortSelect").value;
+
+  if(sortValue === "bpm-asc") {
+    sortedSongs.sort(function(a, b) { return a.bpm - b.bpm; });
+  }
+  else if(sortValue === "bpm-desc") {
+    sortedSongs.sort(function(a,b) { return b.bpm - a.bpm });
+  }
+  else if(sortValue === "streams-asc") {
+    sortedSongs.sort(function(a,b) { return a.streams - b.streams; });
+  }
+
+  else if(sortValue === "streams-desc") {
+    sortedSongs.sort(function(a,b) { return b.streams - a.streams; });
+  }
+
+
+  for (let i = 0; i < sortedSongs.length; i++) {
+    let song = sortedSongs[i];
 
     if(activeGenre !== "all" && song.genre.toLowerCase() !== activeGenre.toLowerCase()) continue;
 
@@ -95,7 +117,7 @@ function showCards() {
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", function() {
   showCards();
-
+  document.getElementById("sortSelect").addEventListener("change", showCards);
   const genreButtons = document.querySelectorAll(".genre-btn");
 
   for (let i = 0; i < genreButtons.length; i++) {
