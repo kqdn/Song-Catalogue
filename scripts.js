@@ -64,8 +64,6 @@ function showCards() {
 
   for (let i = 0; i < songs.length; i++) {
     let song = songs[i];
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     nextCard.style.display = "block";
     nextCard.querySelector(".card-content").innerHTML = `
