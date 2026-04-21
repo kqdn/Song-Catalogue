@@ -100,7 +100,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   for (let i = 0; i < genreButtons.length; i++) {
     genreButtons[i].addEventListener("click", function() {
-      activeGenre = // get the genre from this button
+      activeGenre = this.dataset.genre;
+      // loop through every genre button
+    for (let j = 0; j < genreButtons.length; j++) {
+      genreButtons[j].classList.remove("active"); // remove the green highlight from all of them
+    }
+    this.classList.add("active"); // add green highlight to the one that was clicked
       showCards();
     });
   }
