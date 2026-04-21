@@ -60,6 +60,7 @@ function formatStreams(num) {
 
 
 // This function adds cards the page to display the data in the array
+//showcards now affects "showing ... cards"
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
@@ -87,15 +88,22 @@ function showCards() {
   //searching
   const search = document.getElementById("searchInput").value.toLowerCase();
 
-
+  let cardsShown = sortedSongs.length;
   for (let i = 0; i < sortedSongs.length; i++) {
     let song = sortedSongs[i];
 
     //genre filter
-    if(activeGenre !== "all" && song.genre.toLowerCase() !== activeGenre.toLowerCase()) continue;
+    if(activeGenre !== "all" && song.genre.toLowerCase() !== activeGenre.toLowerCase()) {
+      cardsShown -= 1;
+      continue;
+    }
 
     //searching
-    if(!song.artist.toLowerCase().includes(search) && !song.title.toLowerCase().includes(search)) continue;
+    let songInfo = song.title.toLowerCase() + " " + song.artist.toLowerCase();
+    if(!songInfo.includes(search)) {
+      cardsShown -= 1;
+      continue;
+    }
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     nextCard.style.display = "block";
@@ -119,6 +127,8 @@ function showCards() {
     `;
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
+  //after loop
+  document.getElementById("resultsCount").innerHTML = `showing ${cardsShown} of ${sortedSongs.length} songs`;
 }
 
 function toggleTheme() {
