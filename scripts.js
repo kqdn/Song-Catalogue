@@ -93,7 +93,18 @@ function showCards() {
 }
 
 // This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
+document.addEventListener("DOMContentLoaded", function() {
+  showCards();
+
+  const genreButtons = document.querySelectorAll(".genre-btn");
+
+  for (let i = 0; i < genreButtons.length; i++) {
+    genreButtons[i].addEventListener("click", function() {
+      activeGenre = // get the genre from this button
+      showCards();
+    });
+  }
+});
 
 function quoteAlert() {
   console.log("Button Clicked!");
