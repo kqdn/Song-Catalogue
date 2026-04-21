@@ -125,8 +125,9 @@ function showCards() {
 document.addEventListener("DOMContentLoaded", function() {
   showCards();
 
-  document.getElementById("searchInput").addEventListener("change", showCards);
-
+  document.getElementById("searchInput").addEventListener("input", showCards);
+  //change is bad because u have to click out or enter
+  //use input so it fires for every keystroke
   document.getElementById("sortSelect").addEventListener("change", showCards);
   const genreButtons = document.querySelectorAll(".genre-btn");
 
