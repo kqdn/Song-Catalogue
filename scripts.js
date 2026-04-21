@@ -62,6 +62,7 @@ function formatStreams(num) {
 // This function adds cards the page to display the data in the array
 //showcards now affects "showing ... cards"
 function showCards() {
+  document.getElementById("numSongs").textContent = songs.length; // update numsongs here
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
@@ -142,7 +143,6 @@ function toggleTheme() {
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("numSongs").textContent = songs.length;
   showCards();
 
   document.getElementById("themeToggle").addEventListener("click", toggleTheme);
