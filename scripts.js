@@ -44,6 +44,7 @@
   //   annotation: "Reminds me of having nostalgia and reminiscing an old friend that drifted away."
   // },
 
+let activeGenre = "all";
 
 //function to format large numbers:
 function formatStreams(num) {
@@ -64,6 +65,9 @@ function showCards() {
 
   for (let i = 0; i < songs.length; i++) {
     let song = songs[i];
+
+    if(activeGenre !== "all" && song.genre.toLowerCase() !== activeGenre.toLowerCase()) continue;
+
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     nextCard.style.display = "block";
     nextCard.querySelector(".card-content").innerHTML = `
