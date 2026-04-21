@@ -74,6 +74,13 @@ function showCards() {
           <span class="tag genre-tag">${song.genre}</span>
           <span class="tag">${song.bpm} BPM</span>
         </div>
+        <div class="bpm-row">
+          <span class="bpm-label">BPM</span>
+          <div class="bpm-bar-track">
+          <div class="bpm-bar-fill" style="width: ${Math.round((song.bpm / 200) * 100)}%"></div>
+          </div>
+          <span class="bpm-value">${song.bpm}</span>
+        </div>
         <p class="card-streams">streams: <span>${formatStreams(song.streams)}</span></p>
         <p class="card-annotation">${song.annotation}</p>
     `;
