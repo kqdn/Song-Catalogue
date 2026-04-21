@@ -95,7 +95,7 @@ function showCards() {
     if(activeGenre !== "all" && song.genre.toLowerCase() !== activeGenre.toLowerCase()) continue;
 
     //searching
-    if(!song.artist.toLowerCase().includes(search) && !song.artist.toLowerCase().includes(search)) continue;
+    if(!song.artist.toLowerCase().includes(search) && !song.title.toLowerCase().includes(search)) continue;
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     nextCard.style.display = "block";
