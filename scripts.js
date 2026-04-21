@@ -121,9 +121,20 @@ function showCards() {
   }
 }
 
+function toggleTheme() {
+  let theme = document.documentElement.getAttribute("data-theme");
+  if(theme === "dark") {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+  else document.documentElement.setAttribute("data-theme", "dark");
+  //data-theme="light"
+}
+
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", function() {
   showCards();
+
+  document.getElementById("themeToggle").addEventListener("click", toggleTheme);
 
   document.getElementById("searchInput").addEventListener("input", showCards);
   //change is bad because u have to click out or enter
