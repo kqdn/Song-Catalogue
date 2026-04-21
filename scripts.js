@@ -71,7 +71,7 @@ function showCards() {
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     nextCard.style.display = "block";
     nextCard.querySelector(".card-content").innerHTML = `
-        <p class="card-number">${i+1}.</p>
+        <p class="card-number">${song.id}.</p>
         <h2 class="card-title">${song.title}</h2>
         <p class="card-artist">${song.artist}</p>
         <div class="card-tags">
