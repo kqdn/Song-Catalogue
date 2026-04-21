@@ -60,9 +60,12 @@ function showCards() {
         <p class="card-number">${song.id}.</p>
         <h2 class="card-title">${song.title}</h2>
         <p class="card-artist">${song.artist}</p>
-        <p class="card-content">${song.annotation}</p>
-        <p class="card-content">Streams: ${song.streams}</p>
-        <p class="card-content">Genre: ${song.genre} BPM: ${song.bpm}</p>
+        <div class="card-tags">
+          <span class="tag genre-tag">${song.genre}</span>
+          <span class="tag">${song.bpm} BPM</span>
+        </div>
+        <p class="card-streams">streams: <span>${song.streams}</span></p>
+        <p class="card-annotation">${song.annotation}</p>
     `;
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
