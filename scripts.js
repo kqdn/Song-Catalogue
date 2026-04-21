@@ -142,6 +142,7 @@ function toggleTheme() {
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("numSongs").textContent = songs.length;
   showCards();
 
   document.getElementById("themeToggle").addEventListener("click", toggleTheme);
