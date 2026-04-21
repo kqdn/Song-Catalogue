@@ -427,7 +427,17 @@ body {
   line-height: 0;
   vertical-align: -4px;
   margin-right: 2px;
-  font-style: normal;
+
+}
+
+.card-annotation::after {
+  content: '"';
+  color: var(--accent);
+  font-size: 18px;
+  line-height: 0;
+  vertical-align: -4px;
+  margin-right: 2px;
+
 }
 
 /* =====================
