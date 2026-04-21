@@ -145,6 +145,18 @@ function toggleTheme() {
 document.addEventListener("DOMContentLoaded", function() {
   showCards();
 
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", function() {
+    if (window.scrollY > 300) {
+      backToTop.classList.add("visible");
+    } else {
+      backToTop.classList.remove("visible");
+    }
+  });
+  backToTop.addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
   document.getElementById("themeToggle").addEventListener("click", toggleTheme);
 
   document.getElementById("searchInput").addEventListener("input", showCards);
@@ -179,3 +191,5 @@ function removeLastCard() {
   //im noticing it looks like the implementation is wrong when im using genre filter 
   //because it deletes even the ones not shown idk if i should fix this later
 }
+
+
