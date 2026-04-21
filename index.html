@@ -1,32 +1,92 @@
 <!doctype html>
-<html>
-  <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="songs.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
-  </head>
+<html data-theme="dark">
+<head>
+  <title>kaden's songs | catalog</title>
+  <meta name="description" content="A personal catalog of 25 songs I've been into lately" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="songs.js"></script>
+  <script type="text/javascript" src="scripts.js" defer></script>
+</head>
+<body>
 
-  <body>
-    <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+  <header class="main-header">
+    <div class="header-top">
+      <div class="header-text">
+        <p class="header-label">personal catalog</p>
+        <h1 class="title">lately i've been listening to</h1>
+        <p class="header-sub">25 songs. diverse genres. one annotation each.</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <span class="toggle-icon">◐</span>
+      </button>
+    </div>
+
+    <div class="controls">
+      <!-- SEARCH -->
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="search songs or artists..."
+        />
+      </div>
+
+      <!-- GENRE FILTER -->
+      <div class="filter-wrap">
+        <span class="control-label">genre</span>
+        <div class="genre-buttons" id="genreButtons">
+          <button class="genre-btn active" data-genre="all">all</button>
+          <button class="genre-btn" data-genre="Alternative">alternative</button>
+          <button class="genre-btn" data-genre="Hip-Hop/Rap">hip-hop / rap</button>
+          <button class="genre-btn" data-genre="Dance">dance</button>
+          <button class="genre-btn" data-genre="House">house</button>
+          <button class="genre-btn" data-genre="Electronic">electronic</button>
+          <button class="genre-btn" data-genre="Jazz">jazz</button>
+          <button class="genre-btn" data-genre="Pop">pop</button>
+          <button class="genre-btn" data-genre="Indie Rock">indie rock</button>
+        </div>
+      </div>
+
+      <!-- SORT -->
+      <div class="sort-wrap">
+        <span class="control-label">sort by</span>
+        <select id="sortSelect" class="sort-select">
+          <option value="default">default order</option>
+          <option value="bpm-asc">bpm: low → high</option>
+          <option value="bpm-desc">bpm: high → low</option>
+          <option value="streams-asc">streams: low → high</option>
+          <option value="streams-desc">streams: most streamed</option>
+        </select>
       </div>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
+
+    <div class="results-count" id="resultsCount">showing 25 songs</div>
+  </header>
+
+  <!-- CARD GRID -->
+  <div id="card-container"></div>
+
+  <!-- HIDDEN TEMPLATE CARD (required by starter code) -->
+  <div class="card" style="display: none">
+    <div class="card-content">
+      <h2>Song Title</h2>
+      <ul>
+        <li>Artist</li>
+        <li>Genre</li>
+        <li>BPM</li>
+      </ul>
     </div>
-  </body>
+  </div>
+
+  <div class="footer">
+    <button onclick="removeLastCard()">remove last card</button>
+  </div>
+
+</body>
 </html>
