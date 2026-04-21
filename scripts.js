@@ -55,7 +55,10 @@ function showCards() {
     // This part of the code doesn't scale very well! After you add your
     // own data, you'll need to do something totally different here.
     const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
+    nextCard.style.display = "block";
+    nextCard.querySelector(".card-content").innerHTML = `
+        
+    `;
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
 }
