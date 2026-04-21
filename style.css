@@ -490,15 +490,46 @@ body {
    ===================== */
 @media (max-width: 600px) {
   .main-header {
-    padding: 20px 20px 16px;
+    position: relative;
+    padding: 16px 16px 12px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .header-sub {
+    font-size: 10px;
+  }
+
+  .header-top {
+    margin-bottom: 14px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .search-wrap {
+    max-width: 100%;
+  }
+
+  .genre-btn {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .sort-select {
+    font-size: 11px;
+    padding: 6px 10px;
   }
 
   #card-container {
-    padding: 20px 20px 40px;
+    padding: 20px 16px 40px;
     grid-template-columns: 1fr;
   }
 
   .footer {
-    padding: 16px 20px;
+    padding: 16px;
   }
 }
